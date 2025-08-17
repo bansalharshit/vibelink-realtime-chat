@@ -1,6 +1,9 @@
 package com.harshit.vibelink.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
@@ -8,15 +11,13 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "messages")
 public class Message {
+    @Id
+    private String id;
+    @Indexed
+    private String roomId;
     private String sender;
     private String content;
     private LocalDateTime localDateTime;
-
-    public Message(String sender,String content)
-    {
-        this.sender = sender;
-        this.content = content;
-        this.localDateTime = LocalDateTime.now();
-    }
 }

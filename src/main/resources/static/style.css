@@ -43,3 +43,26 @@ body { background-color: var(--bg); }
   display: block;
   margin-top: 4px;
 }
+/* Center all screens in the container */
+#login-screen,
+#room-screen,
+#chat-screen {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Login screen styling */
+#login-screen input {
+  margin-bottom: 12px;
+}
+
+/* Room selection screen */
+#room-screen select,
+#room-screen input {
+  margin-bottom: 12px;
+}
+
+/* Chat screen adjustments */
+#chat-screen {
+  margin-top: 20px;
+}

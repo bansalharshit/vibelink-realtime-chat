@@ -24,7 +24,7 @@ public ResponseEntity<?> createRoom(@RequestBody String roomId)
          if(roomService.getRoomByRoomId(roomId)!=null)
          {
              // Room is Already Present There
-             return ResponseEntity.badRequest().body("Room Already Exist");
+             return ResponseEntity.badRequest().body("Room Already Exist!");
          }
          Room room = new Room();
          room.setRoomId(roomId);
@@ -38,7 +38,7 @@ public ResponseEntity<?> createRoom(@RequestBody String roomId)
     {
         Room room = roomService.getRoomByRoomId(roomId);
         if(room==null)
-            return ResponseEntity.badRequest().body("Room not Found, Please Join Another Room");
+            return ResponseEntity.badRequest().body("Room not found, please join another room.");
         return ResponseEntity.ok(room);
     }
 
@@ -56,5 +56,11 @@ public ResponseEntity<?> createRoom(@RequestBody String roomId)
         List<Message> paginatedMessages= messages.subList(start,end);
         return ResponseEntity.ok(messages);
     }
+
+    @GetMapping
+    public List<Room> getAllRooms() {
+        return roomService.getAllRooms();
+    }
+
 }
 

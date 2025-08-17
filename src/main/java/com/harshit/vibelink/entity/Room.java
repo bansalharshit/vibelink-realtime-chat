@@ -21,4 +21,14 @@ public class Room {
     private String id;// mongodb:unique Identifier
     private String roomId;
     private List<Message> messages = new ArrayList<>();
+
+    public Room(String roomId, List<Message> messages) {
+        this.roomId = roomId;
+    }
+
+    public Room(String roomId)
+    {
+        this.roomId = roomId;
+
+    }
 }
