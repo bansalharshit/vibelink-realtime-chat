@@ -51,6 +51,9 @@ public ResponseEntity<?> createRoom(@RequestBody String roomId)
         if(room == null)
             return ResponseEntity.badRequest().build();
         List<Message> messages = room.getMessages();
+        int start = Math.max(0,messages.size()-(page+1)*size);
+        int end = Math.min(messages.size(),start+size);
+        List<Message> paginatedMessages= messages.subList(start,end);
         return ResponseEntity.ok(messages);
     }
 }

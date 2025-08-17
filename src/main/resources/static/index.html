@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VibeLink – Chat App </title>
+
+    <!-- Bootstrap CSS via WebJars -->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<div class="container py-5">
+    <h2 class="text-center mb-4">💬 VibeLink Chat</h2>
+
+    <div id="chat-box" class="mb-3"></div>
+
+    <form id="chat-form" class="d-flex gap-2">
+        <input type="text" id="username" class="form-control" autocomplete="off" placeholder="Your Name" required />
+        <input type="text" id="message" class="form-control" autocomplete="off" placeholder="Type a message..." required />
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</div>
+
+<!-- jQuery (needed for some Bootstrap components) -->
+<script src="/webjars/jquery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SockJS + STOMP via WebJars -->
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+<!-- Your app logic -->
+<script src="/script.js"></script>
+</body>
+</html>
