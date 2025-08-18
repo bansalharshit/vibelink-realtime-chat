@@ -124,11 +124,24 @@ function joinSelectedRoom() {
   }
 
   currentRoom = room;
+    // 👇 Add custom room into dropdown if it doesn’t already exist
+    const roomSelect = document.getElementById("roomSelect");
+    if (newRoom && ![...roomSelect.options].some(opt => opt.value === newRoom)) {
+      const opt = document.createElement("option");
+      opt.value = newRoom;
+      opt.textContent = newRoom;
+      roomSelect.appendChild(opt);
+      roomSelect.value = newRoom; // make it selected
+    }
+
   document.getElementById("room-screen").style.display = "none";
   document.getElementById("chat-screen").style.display = "block";
 
   loadHistory(currentRoom);
   connect(currentRoom);
+
+   // Clear custom room input after use
+    document.getElementById("newRoom").value = "";
 }
 
 
